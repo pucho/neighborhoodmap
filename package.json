@@ -1,0 +1,23 @@
+{
+  "name": "neighborhoodmap",
+  "version": "0.0.1",
+  "description": "Neighborhood map for FEND course",
+  "main": "js/app.js",
+  "dependencies": {
+    "requirejs": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pucho/neighborhoodmap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pucho/neighborhoodmap/issues"
+  },
+  "homepage": "https://github.com/pucho/neighborhoodmap#readme"
+}

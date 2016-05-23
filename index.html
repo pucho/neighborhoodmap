@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script data-main="js/app.js" src="node_modules/requirejs/require.js"></script>
+
+    <title>Neighborhood Map</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-xs-3">
+        <p>First name: <input class="form-control" data-bind="value: firstName" /></p>
+        <p>First name capitalized: <strong data-bind="text: firstNameCaps"></strong></p>
+
+      </div>
+      <div class="col-xs-9">
+        <p>Last name: <input class="form-control" data-bind="value: lastName"></p>
+        <p>Latlong <text data-bind="text: latlong"></p>
+      </div>
+    </div>
+
+
+  </body>
+</html>
