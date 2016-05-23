@@ -1,0 +1,20 @@
+{
+  "name": "neighborhoodmap",
+  "homepage": "https://github.com/pucho/neighborhoodmap",
+  "authors": [
+    "Francisco Mazzoni <fran.mazzoni@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "^3.4.0"
+  }
+}
