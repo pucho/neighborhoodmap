@@ -1,6 +1,7 @@
 var response;
 
 //Is this correct?
+$(".loading-overlay").show();
 $.getJSON('http://localhost:3000/breweries')
   .done(function(data){
     response = data;
@@ -8,6 +9,9 @@ $.getJSON('http://localhost:3000/breweries')
       ko.applyBindings(new appViewModel());
     });
     map();
+    $(".loading-overlay").hide();
+  }).fail(function(){
+    alert('failed to retrieve data');
   });
 
 //Live marker list that gets filtered with checkboxes
