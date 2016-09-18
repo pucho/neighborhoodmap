@@ -9,7 +9,7 @@ function generateBreweryList(response){
 }
 
 //Generate a map marker Array from the brewerydb api JSON response
-function generateBreweryCoordinates(response){
+function generateMarkerArray(response){
   var markerArray = [];
   var marker;
   for (var i = 0; i < response.data.length; i++) {
@@ -35,7 +35,7 @@ function map(lat = 41.8339042, long = -88.0123461) {
   this.map = new google.maps.Map(document.getElementById('map'), this.mapOptions);
 
   var marker, latlng, infowindow;
-  var breweryCoordinates = generateBreweryCoordinates(response);
+  var breweryCoordinates = generateMarkerArray(response);
 
   //Generate all the markers for the selected place
   infowindow = new google.maps.InfoWindow({
@@ -133,7 +133,7 @@ function appViewModel() {
   self.latitude = ko.observable(41.89044373452023);
   self.longitude = ko.observable(-87.62190229812012);
 
-  self.map = map(self.latitude(), self.longitude());
+  //self.map = map(self.latitude(), self.longitude());
 }
 
 $(function(){
