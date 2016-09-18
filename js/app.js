@@ -1,11 +1,19 @@
-
 var response;
+
+//Is this correct?
+$.getJSON('http://localhost:3000/breweries')
+  .done(function(data){
+    response = data;
+    $(function(){
+      ko.applyBindings(new appViewModel());
+    });
+    map();
+  });
+
 //Live marker list that gets filtered with checkboxes
 var liveMarkerList = [];
 //Static markerList
 var markerList = [];
-
-response = $.getJSON('https://api.brewerydb.com/v2/locations?locality=Chicago&key=cbf0ce3c607c3b7ddcb88588151b9891&format=json');
 
 //Generate a Brewery List from the brewerydb api JSON response
 function generateBreweryList(response){
@@ -29,6 +37,7 @@ function generateMarkerArray(response){
   return markerArray;
 }
 
+//Map generator
 function map(lat = 41.89044373452023, long = -87.62190229812012) {
   this.mapOptions = {
     zoom: 14,
@@ -70,10 +79,8 @@ function map(lat = 41.89044373452023, long = -87.62190229812012) {
   }
 }
 
-
 // Sets the map on all markers in the array.
 function setMapOnAll(map, markers) {
-  console.log(markers.length)
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
@@ -140,7 +147,6 @@ function appViewModel() {
         }
       }
     }
-    console.log(liveMarkerList.length);
     clearMarkers();
     showMarkers(liveMarkerList);
     return true;
@@ -158,17 +164,4 @@ function appViewModel() {
 
   //List of markers for the mapMarkers
   self.mapMarkers = ko.observableArray(liveMarkerList);
-
-  //Selected neighborhood
-  self.neighborHood = ko.observable('Chicago');
-
-  //Selected neighborhood map lat and long
-  self.latitude = ko.observable(41.89044373452023);
-  self.longitude = ko.observable(-87.62190229812012);
-
-  //self.map = map(self.latitude(), self.longitude());
 }
-
-$(function(){
-  ko.applyBindings(new appViewModel());
-});
