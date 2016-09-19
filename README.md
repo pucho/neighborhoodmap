@@ -2,7 +2,7 @@
 
 To launch this app you will need to install [node.js](https://nodejs.org/en/download/package-manager/)
 
-After installing node.js use NPM to install all the dependancies by
+After installing node.js use NPM to install all the dependencies by
 running the following command on the command line.
 
 `npm install`
