@@ -1,18 +1,20 @@
 var response;
 
 //Is this correct?
-$(".loading-overlay").show();
-$.getJSON('http://localhost:3000/breweries')
-  .done(function(data){
-    response = data;
-    $(function(){
-      ko.applyBindings(new appViewModel());
+function initMap (){
+  $(".loading-overlay").show();
+  $.getJSON('http://localhost:3000/breweries')
+    .done(function(data){
+      response = data;
+      $(function(){
+        ko.applyBindings(new appViewModel());
+      });
+      map();
+      $(".loading-overlay").hide();
+    }).fail(function(){
+      alert('failed to retrieve data');
     });
-    map();
-    $(".loading-overlay").hide();
-  }).fail(function(){
-    alert('failed to retrieve data');
-  });
+}
 
 //Live marker list that gets filtered with checkboxes
 var liveMarkerList = [];
@@ -39,6 +41,10 @@ function generateMarkerArray(response){
     markerArray.push(marker);
   }
   return markerArray;
+}
+
+function googleError() {
+  alert('failed to load Google Maps');
 }
 
 //Map generator
